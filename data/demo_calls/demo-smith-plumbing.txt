@@ -1,0 +1,34 @@
+# ─────────────────────────────────────────────────
+# DEMO TRANSCRIPT — Smith's Plumbing Solutions
+# Account ID: smith-plumbing
+# ─────────────────────────────────────────────────
+
+Hi, my name is John Smith and I run Smith's Plumbing Solutions. We've been in business for 12 years. Our company has 8 employees. Our industry is residential and commercial plumbing.
+
+Business hours are Monday through Friday, 8:00 AM to 5:00 PM Central time. We also take emergency calls 24/7.
+
+Services offered are: drain cleaning, pipe repair, water heater installation, emergency plumbing, bathroom remodeling.
+
+We serve the greater Denver metro area. Our pricing model is hourly rate plus materials. The average job value is $350. Our busiest season is winter because of frozen pipe emergencies.
+
+An emergency is defined as: flooding, burst pipes, sewage backup, gas leak smell near plumbing, no hot water in winter.
+
+For emergencies, the emergency contact is John Smith at 303-555-0199. He is the primary on-call technician. If he's unavailable, try Mike the senior tech at 303-555-0198. Fallback: leave a voicemail and we guarantee a callback within 15 minutes.
+
+Non-emergency calls should be routed to the office during business hours. Take the caller's name, number, and a brief description, then schedule a callback or appointment.
+
+If a transfer fails, say: "I apologize, I'm unable to connect you right now. Can I take your name and number so we can call you back within 30 minutes?"
+
+Integration constraints: never create jobs for sprinkler systems in our system, those go to a separate contractor.
+
+Our goal is to book more service appointments and reduce missed calls. Our tone should be friendly and professional. Greeting style: "Thanks for calling Smith's Plumbing, how can we help you today?"
+
+Key selling points are: 24/7 emergency service, licensed and insured, free estimates, same-day service available.
+
+Common objections include: pricing concerns, availability questions, warranty coverage.
+
+We use ServiceTitan as our CRM. Our scheduling tool is Housecall Pro. Payment processor is Square. We also use QuickBooks for accounting.
+
+My phone is 303-555-0147. Email is john@smithplumbing.com. Website is smithplumbing.com. Our address is 1234 Main Street, Denver, CO 80202.
+
+Follow-up procedure: call customer within 24 hours after service completion. Note: we offer a 10% discount for first-time customers.

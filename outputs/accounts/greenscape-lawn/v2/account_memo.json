@@ -1,0 +1,109 @@
+{
+  "account_id": "greenscape-lawn",
+  "company_name": "GreenScape Pro Lawn & Landscape",
+  "version": 2,
+  "created_at": "2026-03-04T21:18:31.026Z",
+  "updated_at": "2026-03-04T21:18:31.027Z",
+  "type": "onboarding",
+  "status": "active",
+  "business_hours": {
+    "days": "Monday through Saturday",
+    "start": "6:30 AM",
+    "end": "5:00 PM",
+    "timezone": "Pacific"
+  },
+  "office_address": "4100 SW Canyon Road, Portland, OR 97221",
+  "services_supported": [
+    "lawn mowing",
+    "landscape design",
+    "irrigation installation",
+    "tree trimming",
+    "mulching",
+    "seasonal cleanups",
+    "sod installation",
+    "hardscaping",
+    "outdoor lighting",
+    "drainage solutions",
+    "snow removal",
+    "artificial turf installation"
+  ],
+  "emergency_definition": [
+    "severe soil erosion threatening foundation",
+    "downed power line tangled in trees — do NOT approach",
+    "call utility company"
+  ],
+  "emergency_routing_rules": [
+    {
+      "contact_name": "Maria Gonzalez",
+      "phone": "503-555-0178",
+      "role": "Primary on-call",
+      "order": 1,
+      "fallback": "have the crew lead text a status update to the customer within 1 hour"
+    }
+  ],
+  "non_emergency_routing_rules": "Take caller name, phone number, and message. Schedule callback during business hours.",
+  "routing_rules": {
+    "emergency": [
+      {
+        "contact_name": "Maria Gonzalez",
+        "phone": "503-555-0178",
+        "role": "Primary on-call",
+        "order": 1,
+        "fallback": "have the crew lead text a status update to the customer within 1 hour"
+      }
+    ],
+    "non_emergency": "Take caller name, phone number, and message. Schedule callback during business hours."
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": 30,
+    "max_retries": 2,
+    "message_if_fails": "I'm sorry, I wasn't able to connect you. Can I take your name and number so someone can call you back shortly?"
+  },
+  "integration_constraints": [
+    "never schedule tree removal jobs without a city permit number on file"
+  ],
+  "after_hours_flow_summary": "Greet caller, determine if emergency, if yes collect name/number/address and attempt dispatch, if no take message and assure next-day callback.",
+  "office_hours_flow_summary": "Greet caller, determine purpose, collect name and number, schedule appointment or transfer to team member, confirm next steps, close.",
+  "owner_name": "Maria Gonzalez",
+  "phone": "503-555-0178",
+  "email": "maria@greenscapepdx.com",
+  "website": "greenscapepdx.com",
+  "industry": "supervisor",
+  "years_in_business": 10,
+  "number_of_employees": 28,
+  "service_area": "the greater Portland",
+  "pricing_model": "remains per-project plus monthly recurring",
+  "average_job_value": "for landscaping is now $3500",
+  "peak_season": "spring and early summer",
+  "tone": "friendly",
+  "greeting_style": "Hey there, thanks for calling GreenScape! How can we make your yard look amazing today?",
+  "call_objective": "now to schedule estimates",
+  "key_selling_points": [
+    "free estimates",
+    "certified arborist on staff",
+    "eco-friendly products",
+    "10 years in business",
+    "satisfaction guarantee",
+    "flexible scheduling",
+    "commercial and HOA expertise",
+    "snow removal available"
+  ],
+  "objection_handling": [
+    "too expensive",
+    "already have a lawn guy",
+    "not sure what they need",
+    "want to wait until spring"
+  ],
+  "scheduling_preferences": "batch estimates by neighborhood to save drive time, prefer Tuesday and Thursday for new consultations",
+  "follow_up_procedure": "send a digital proposal within 24 hours of the estimate, then follow up by text 3 days later",
+  "crm": "Service Autopilot",
+  "scheduling_tool": "Jobber",
+  "payment_processor": "Stripe",
+  "other_tools": [
+    "Aspire for estimating and LMN for time tracking"
+  ],
+  "notes": "current promotion is free spring cleanup (valued at $250) with any new annual lawn maintenance contract signed this month.",
+  "questions_or_unknowns": [
+    "What is the owner's name?"
+  ]
+}

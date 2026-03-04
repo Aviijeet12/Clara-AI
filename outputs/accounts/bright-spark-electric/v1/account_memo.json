@@ -1,0 +1,99 @@
+{
+  "account_id": "bright-spark-electric",
+  "company_name": "Bright Spark Electrical Services",
+  "version": 1,
+  "created_at": "2026-03-04T21:18:30.834Z",
+  "updated_at": "2026-03-04T21:18:30.834Z",
+  "type": "demo",
+  "status": "active",
+  "business_hours": {
+    "days": "Monday through Friday",
+    "start": "7:00 AM",
+    "end": "5:00 PM",
+    "timezone": "Central"
+  },
+  "office_address": "8742 Research Blvd, Austin, TX 78758",
+  "services_supported": [
+    "panel upgrades",
+    "whole-home rewiring",
+    "ceiling fan installation",
+    "landscape lighting",
+    "EV charger installation",
+    "outlet and switch repair",
+    "smoke detector installation"
+  ],
+  "emergency_definition": [
+    "sparking outlets",
+    "burning smell from wiring",
+    "total power loss",
+    "exposed live wires",
+    "electrical fire hazard"
+  ],
+  "emergency_routing_rules": [
+    {
+      "contact_name": "Rachel Torres",
+      "phone": "512-555-0389",
+      "role": "Primary on-call",
+      "order": 1,
+      "fallback": "take all details and assure callback within 10 minutes"
+    }
+  ],
+  "non_emergency_routing_rules": "take the caller's name and number, describe the issue, and schedule a next-day appointment slot",
+  "routing_rules": {
+    "emergency": [
+      {
+        "contact_name": "Rachel Torres",
+        "phone": "512-555-0389",
+        "role": "Primary on-call",
+        "order": 1,
+        "fallback": "take all details and assure callback within 10 minutes"
+      }
+    ],
+    "non_emergency": "take the caller's name and number, describe the issue, and schedule a next-day appointment slot"
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": 30,
+    "max_retries": 2,
+    "message_if_fails": "I'm sorry I couldn't connect you directly. Let me get your name and number and someone will call you back within 30 minutes."
+  },
+  "integration_constraints": [],
+  "after_hours_flow_summary": "Greet caller, determine if emergency, if yes collect name/number/address and attempt dispatch, if no take message and assure next-day callback.",
+  "office_hours_flow_summary": "Greet caller, determine purpose, collect name and number, schedule appointment or transfer to team member, confirm next steps, close.",
+  "owner_name": "Rachel Torres",
+  "phone": "512-555-0389",
+  "email": "rachel@brightsparkaustin.com",
+  "website": "brightsparkaustin.com",
+  "industry": "residential and light commercial electrical work",
+  "years_in_business": 7,
+  "number_of_employees": 5,
+  "service_area": "the greater Austin area including Round Rock",
+  "pricing_model": "r installation",
+  "average_job_value": "around $600",
+  "peak_season": "summer because that's when AC units overload circuits and people do home renovations",
+  "tone": "friendly",
+  "greeting_style": "Hey, thanks for calling Bright Spark Electrical! This is our service line — how can we help you today?",
+  "call_objective": "s is to qualify leads and book on-site estimates",
+  "key_selling_points": [
+    "same-day emergency service",
+    "licensed and bonded",
+    "upfront flat-rate pricing",
+    "lifetime warranty on workmanship",
+    "family-owned local business"
+  ],
+  "objection_handling": [
+    "price too high",
+    "want to compare quotes",
+    "need to check with spouse",
+    "not sure if they need a permit"
+  ],
+  "scheduling_preferences": "",
+  "follow_up_procedure": "send a text confirmation within 1 hour of booking, then a reminder text the morning of the appointment",
+  "crm": "QuickBooks",
+  "scheduling_tool": "Jobber",
+  "payment_processor": "Square",
+  "other_tools": [
+    "Google Business Profile for reviews"
+  ],
+  "notes": "always mention we offer a free electrical safety inspection with any service call over $200.",
+  "questions_or_unknowns": []
+}

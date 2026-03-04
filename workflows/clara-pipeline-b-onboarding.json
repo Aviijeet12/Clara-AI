@@ -1,0 +1,209 @@
+{
+  "name": "Clara AI - Pipeline B: Onboarding → v2",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "process-onboarding",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.type }}",
+              "operation": "equals",
+              "value2": "onboarding"
+            }
+          ]
+        }
+      },
+      "id": "validate-type",
+      "name": "Validate Type = onboarding",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.accountId }}",
+              "operation": "isNotEmpty"
+            },
+            {
+              "value1": "={{ $json.body.transcript }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "validate-input",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 240]
+    },
+    {
+      "parameters": {
+        "fileName": "=/outputs/accounts/{{ $json.body.accountId }}/v1/account_memo.json"
+      },
+      "id": "load-v1",
+      "name": "Load Existing v1 Memo",
+      "type": "n8n-nodes-base.readFile",
+      "typeVersion": 1,
+      "position": [900, 240]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract new data from onboarding transcript\n// Then merge with existing v1 data\n\nconst transcript = $('Webhook Trigger').item.json.body.transcript;\nconst accountId = $('Webhook Trigger').item.json.body.accountId;\nconst v1Memo = JSON.parse($input.item.json.data);\nconst now = new Date().toISOString();\n\nfunction findValue(text, ...patterns) {\n  for (const pattern of patterns) {\n    const match = text.match(pattern);\n    if (match && match[1]) return match[1].trim();\n  }\n  return '';\n}\n\nfunction findList(text, ...patterns) {\n  for (const pattern of patterns) {\n    const match = text.match(pattern);\n    if (match && match[1]) {\n      return match[1].split(/[,;]/).map(s => s.trim()).filter(Boolean);\n    }\n  }\n  return [];\n}\n\n// Extract from onboarding transcript\nconst newCompanyName = findValue(transcript,\n  /(?:business\\s*name|company\\s*name|company|now\\s*called)\\s*(?:is|:)\\s*(.+?)(?:\\.|,|\\n|$)/i\n);\nconst newServices = findList(transcript,\n  /(?:services?\\s*(?:offered|supported|we\\s*offer|include|now\\s*include))\\s*(?:are|:)?\\s*(.+?)(?:\\.\\s|\\n|$)/i\n);\nconst newEmergencyDef = findList(transcript,\n  /(?:emergency|emergencies)\\s*(?:definition|defined\\s*as|include|are|now\\s*include)\\s*(.+?)(?:\\.\\s|\\n|$)/i\n);\n\n// Deep merge: onboarding overrides demo, empty fields preserved\nconst merged = { ...v1Memo };\nif (newCompanyName) merged.company_name = newCompanyName;\nif (newServices.length > 0) merged.services_supported = newServices;\nif (newEmergencyDef.length > 0) merged.emergency_definition = newEmergencyDef;\nmerged.version = 2;\nmerged.updated_at = now;\nmerged.type = 'onboarding';\n\n// Generate changelog\nconst changes = [];\nconst ignoreKeys = ['version', 'updated_at', 'created_at', 'type', 'questions_or_unknowns'];\nfor (const key of Object.keys(merged)) {\n  if (ignoreKeys.includes(key)) continue;\n  const oldStr = JSON.stringify(v1Memo[key]);\n  const newStr = JSON.stringify(merged[key]);\n  if (oldStr !== newStr) {\n    changes.push({\n      field: key,\n      path: key,\n      old_value: v1Memo[key],\n      new_value: merged[key],\n      change_type: v1Memo[key] ? 'updated' : 'added'\n    });\n  }\n}\n\nconst changelog = {\n  account_id: accountId,\n  from_version: 1,\n  to_version: 2,\n  created_at: now,\n  total_changes: changes.length,\n  changes\n};\n\nreturn { json: { v2Memo: merged, changelog, accountId } };"
+      },
+      "id": "merge-and-changelog",
+      "name": "Extract + Merge + Changelog",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 240]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate Retell Agent Spec v2 from merged memo\nconst memo = $input.item.json.v2Memo;\nconst bizName = memo.company_name || memo.account_id;\nconst servicesText = memo.services_supported.length > 0 ? memo.services_supported.join(', ') : 'various services';\n\nconst systemPrompt = `You are a professional AI phone receptionist for ${bizName}. They offer ${servicesText}.\n\nTone: Be professional, friendly, and helpful.\n\nIMPORTANT RULES:\n- Do NOT mention internal tools, functions, or systems to the caller.\n- Do NOT ask more than 3 questions in a row without providing value back.\n- Only collect information needed for routing and dispatch.\n- Always confirm details before ending the call.\n\nOffice Hours Flow (${memo.business_hours.days} ${memo.business_hours.start}-${memo.business_hours.end}):\n1. Greet → determine purpose → collect name/number → schedule or transfer → confirm → close\n\nAfter Hours Flow:\n1. Inform closed → check emergency → if yes: collect info + dispatch → if no: take message → close\n\nTransfer Protocol: Wait ${memo.call_transfer_rules.timeout_seconds}s, retry ${memo.call_transfer_rules.max_retries}x\nFallback: \"${memo.call_transfer_rules.message_if_fails}\"`;\n\nconst retellSpec = {\n  agent_name: `${bizName} AI Receptionist`,\n  account_id: memo.account_id,\n  version: 2,\n  created_at: new Date().toISOString(),\n  voice_style: memo.tone || 'professional and friendly',\n  system_prompt: systemPrompt,\n  key_variables: {\n    timezone: memo.business_hours.timezone,\n    business_hours: `${memo.business_hours.days} ${memo.business_hours.start}-${memo.business_hours.end}`,\n    office_address: memo.office_address || 'Not provided',\n    emergency_routing: 'Primary on-call contact',\n    services: memo.services_supported\n  },\n  tool_invocation_placeholders: [\n    { name: 'schedule_appointment', description: 'Schedule a service appointment', parameters: {} },\n    { name: 'collect_customer_info', description: 'Collect caller info', parameters: {} },\n    { name: 'transfer_call', description: 'Transfer to human', parameters: {} },\n    { name: 'log_emergency', description: 'Log emergency request', parameters: {} }\n  ],\n  call_transfer_protocol: `Wait ${memo.call_transfer_rules.timeout_seconds}s, retry ${memo.call_transfer_rules.max_retries}x`,\n  fallback_protocol: 'Apologize, collect name/phone/description, assure callback',\n  conversation_flow: {\n    office_hours_flow: memo.office_hours_flow_summary,\n    after_hours_flow: memo.after_hours_flow_summary,\n    opening: `Thank you for calling ${bizName}!`,\n    closing: `Thank you for calling ${bizName}. Have a great day!`,\n    fallback: 'Could you please repeat that?'\n  }\n};\n\nreturn { json: { v2Memo: memo, retellSpec, changelog: $input.item.json.changelog, accountId: memo.account_id } };"
+      },
+      "id": "generate-retell-v2",
+      "name": "Generate Retell Spec v2",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1340, 240]
+    },
+    {
+      "parameters": {
+        "fileName": "=/outputs/accounts/{{ $json.accountId }}/v2/account_memo.json",
+        "fileContent": "={{ JSON.stringify($json.v2Memo, null, 2) }}"
+      },
+      "id": "save-v2-memo",
+      "name": "Save Account Memo v2",
+      "type": "n8n-nodes-base.writeFile",
+      "typeVersion": 1,
+      "position": [1560, 120]
+    },
+    {
+      "parameters": {
+        "fileName": "=/outputs/accounts/{{ $json.accountId }}/v2/retell_agent.json",
+        "fileContent": "={{ JSON.stringify($json.retellSpec, null, 2) }}"
+      },
+      "id": "save-retell-v2",
+      "name": "Save Retell Spec v2",
+      "type": "n8n-nodes-base.writeFile",
+      "typeVersion": 1,
+      "position": [1560, 280]
+    },
+    {
+      "parameters": {
+        "fileName": "=/outputs/accounts/{{ $json.accountId }}/changelog.json",
+        "fileContent": "={{ JSON.stringify($json.changelog, null, 2) }}"
+      },
+      "id": "save-changelog",
+      "name": "Save Changelog",
+      "type": "n8n-nodes-base.writeFile",
+      "typeVersion": 1,
+      "position": [1560, 440]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true, message: 'Onboarding processed. v2 files created.', accountId: $json.accountId, version: 2, files: ['v2/account_memo.json', 'v2/retell_agent.json', 'changelog.json'] }) }}"
+      },
+      "id": "respond-success",
+      "name": "Respond Success",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1780, 280]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: false, message: 'type must be onboarding' }) }}",
+        "options": { "responseCode": 400 }
+      },
+      "id": "respond-type-error",
+      "name": "Respond Type Error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 440]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: false, message: 'accountId and transcript required' }) }}",
+        "options": { "responseCode": 400 }
+      },
+      "id": "respond-input-error",
+      "name": "Respond Input Error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 440]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [{ "node": "Validate Type = onboarding", "type": "main", "index": 0 }]
+      ]
+    },
+    "Validate Type = onboarding": {
+      "main": [
+        [{ "node": "Validate Input", "type": "main", "index": 0 }],
+        [{ "node": "Respond Type Error", "type": "main", "index": 0 }]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [{ "node": "Load Existing v1 Memo", "type": "main", "index": 0 }],
+        [{ "node": "Respond Input Error", "type": "main", "index": 0 }]
+      ]
+    },
+    "Load Existing v1 Memo": {
+      "main": [
+        [{ "node": "Extract + Merge + Changelog", "type": "main", "index": 0 }]
+      ]
+    },
+    "Extract + Merge + Changelog": {
+      "main": [
+        [{ "node": "Generate Retell Spec v2", "type": "main", "index": 0 }]
+      ]
+    },
+    "Generate Retell Spec v2": {
+      "main": [
+        [
+          { "node": "Save Account Memo v2", "type": "main", "index": 0 },
+          { "node": "Save Retell Spec v2", "type": "main", "index": 0 },
+          { "node": "Save Changelog", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Save Retell Spec v2": {
+      "main": [
+        [{ "node": "Respond Success", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateId": "clara-ai-pipeline-b"
+  },
+  "tags": [
+    { "name": "clara-ai" },
+    { "name": "pipeline-b" },
+    { "name": "onboarding" }
+  ]
+}

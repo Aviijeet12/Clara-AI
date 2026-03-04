@@ -1,0 +1,220 @@
+{
+  "account_id": "comfort-zone-hvac",
+  "from_version": 1,
+  "to_version": 2,
+  "created_at": "2026-03-04T21:18:30.998Z",
+  "total_changes": 19,
+  "changes": [
+    {
+      "field": "company_name",
+      "path": "company_name",
+      "old_value": "Comfort Zone HVAC Services",
+      "new_value": "Comfort Zone HVAC & Indoor Air",
+      "change_type": "updated"
+    },
+    {
+      "field": "days",
+      "path": "business_hours.days",
+      "old_value": "Monday through Friday",
+      "new_value": "Monday through Saturday",
+      "change_type": "updated"
+    },
+    {
+      "field": "start",
+      "path": "business_hours.start",
+      "old_value": "8:00 AM",
+      "new_value": "7:30 AM",
+      "change_type": "updated"
+    },
+    {
+      "field": "end",
+      "path": "business_hours.end",
+      "old_value": "6:00 PM",
+      "new_value": "7:00 PM",
+      "change_type": "updated"
+    },
+    {
+      "field": "services_supported",
+      "path": "services_supported",
+      "old_value": [
+        "AC installation",
+        "AC repair",
+        "furnace installation",
+        "furnace repair",
+        "duct cleaning",
+        "thermostat installation",
+        "heat pump service",
+        "indoor air quality testing",
+        "preventive maintenance plans"
+      ],
+      "new_value": [
+        "AC installation",
+        "AC repair",
+        "furnace installation",
+        "furnace repair",
+        "duct cleaning",
+        "thermostat installation",
+        "heat pump service",
+        "indoor air quality testing",
+        "preventive maintenance plans",
+        "whole-home dehumidifiers",
+        "UV air purification",
+        "attic insulation"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency_definition",
+      "path": "emergency_definition",
+      "old_value": [
+        "complete AC failure during summer heat wave",
+        "furnace failure during winter freeze",
+        "gas smell near HVAC equipment",
+        "carbon monoxide detector alarm related to heating system"
+      ],
+      "new_value": [
+        "refrigerant leak with hissing sound and HVAC system making loud banging noises"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency_routing_rules",
+      "path": "emergency_routing_rules",
+      "old_value": [
+        {
+          "contact_name": "David Park",
+          "phone": "678-555-0234",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "dispatch the on-call service van and guarantee arrival within 90 minutes"
+        }
+      ],
+      "new_value": [
+        {
+          "contact_name": "David Park",
+          "phone": "678-555-0234",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "Leave voicemail and assure caller of callback within 15 minutes"
+        }
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "non_emergency_routing_rules",
+      "path": "non_emergency_routing_rules",
+      "old_value": "collect the caller's name, address, phone number, and a description of the issue, then schedule the next available appointment",
+      "new_value": "now includes: offer the caller the option to schedule online at their website or via text message",
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency",
+      "path": "routing_rules.emergency",
+      "old_value": [
+        {
+          "contact_name": "David Park",
+          "phone": "678-555-0234",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "dispatch the on-call service van and guarantee arrival within 90 minutes"
+        }
+      ],
+      "new_value": [
+        {
+          "contact_name": "David Park",
+          "phone": "678-555-0234",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "Leave voicemail and assure caller of callback within 15 minutes"
+        }
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "non_emergency",
+      "path": "routing_rules.non_emergency",
+      "old_value": "collect the caller's name, address, phone number, and a description of the issue, then schedule the next available appointment",
+      "new_value": "now includes: offer the caller the option to schedule online at their website or via text message",
+      "change_type": "updated"
+    },
+    {
+      "field": "message_if_fails",
+      "path": "call_transfer_rules.message_if_fails",
+      "old_value": "I apologize for the inconvenience. Let me take your information and our dispatch team will call you back within 20 minutes.",
+      "new_value": "I'm sorry, I wasn't able to connect you. Can I take your name and number so someone can call you back shortly?",
+      "change_type": "updated"
+    },
+    {
+      "field": "number_of_employees",
+      "path": "number_of_employees",
+      "old_value": 10,
+      "new_value": 14,
+      "change_type": "updated"
+    },
+    {
+      "field": "pricing_model",
+      "path": "pricing_model",
+      "old_value": "flat-rate pricing for standard repairs and quoted pricing for installations",
+      "new_value": "now includes membership pricing — maintenance plan members get 15% off all repairs",
+      "change_type": "updated"
+    },
+    {
+      "field": "average_job_value",
+      "path": "average_job_value",
+      "old_value": "500",
+      "new_value": "has increased to $725",
+      "change_type": "updated"
+    },
+    {
+      "field": "call_objective",
+      "path": "call_objective",
+      "old_value": "s is to book diagnostic appointments and sell maintenance plans",
+      "new_value": "to book diagnostic visits and convert callers into annual maintenance plan members at $199/year",
+      "change_type": "updated"
+    },
+    {
+      "field": "key_selling_points",
+      "path": "key_selling_points",
+      "old_value": [
+        "same-day emergency service",
+        "15 years of experience",
+        "satisfaction guarantee",
+        "flexible financing",
+        "licensed and insured",
+        "energy-efficient solutions"
+      ],
+      "new_value": [
+        "same-day emergency service",
+        "15 years of experience",
+        "satisfaction guarantee",
+        "flexible financing",
+        "licensed and insured",
+        "energy-efficient solutions",
+        "$199 annual maintenance plan",
+        "indoor air quality experts"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "scheduling_preferences",
+      "path": "scheduling_preferences",
+      "old_value": "",
+      "new_value": "prioritize morning appointments, offer text message confirmation",
+      "change_type": "added"
+    },
+    {
+      "field": "crm",
+      "path": "crm",
+      "old_value": "Housecall Pro",
+      "new_value": "ServiceTitan",
+      "change_type": "updated"
+    },
+    {
+      "field": "notes",
+      "path": "notes",
+      "old_value": "we offer $75 off first repair for new customers.",
+      "new_value": "current promotion is $49 diagnostic fee (normally $99) for new customers. Always mention this on every call.",
+      "change_type": "updated"
+    }
+  ]
+}

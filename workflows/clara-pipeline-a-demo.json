@@ -1,0 +1,186 @@
+{
+  "name": "Clara AI - Pipeline A: Demo Call → v1",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "process-demo",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.type }}",
+              "operation": "equals",
+              "value2": "demo"
+            }
+          ]
+        }
+      },
+      "id": "validate-type",
+      "name": "Validate Type = demo",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.body.accountId }}",
+              "operation": "isNotEmpty"
+            },
+            {
+              "value1": "={{ $json.body.transcript }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "validate-input",
+      "name": "Validate Input",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 240]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract structured data from demo transcript using regex\n// This is the equivalent of lib/engine.ts extractStructuredData()\n\nconst transcript = $input.item.json.body.transcript;\nconst accountId = $input.item.json.body.accountId;\nconst now = new Date().toISOString();\nconst questions = [];\n\nfunction findValue(text, ...patterns) {\n  for (const pattern of patterns) {\n    const match = text.match(pattern);\n    if (match && match[1]) return match[1].trim();\n  }\n  return '';\n}\n\nfunction findList(text, ...patterns) {\n  for (const pattern of patterns) {\n    const match = text.match(pattern);\n    if (match && match[1]) {\n      return match[1].split(/[,;]/).map(s => s.trim()).filter(Boolean);\n    }\n  }\n  return [];\n}\n\n// Extract fields\nconst companyName = findValue(transcript,\n  /(?:business\\s*name|company\\s*name|company)\\s*(?:is|:)\\s*(.+?)(?:\\.|,|\\n|$)/i,\n  /(?:we\\s*are|I\\s*(?:run|own|operate))\\s+(.+?)(?:\\.|,|\\n|$)/i\n);\nif (!companyName) questions.push('What is the business/company name?');\n\nconst ownerName = findValue(transcript,\n  /(?:my\\s*name\\s*is|owner(?:'s)?\\s*name|name)\\s*(?:is|:)?\\s*([A-Z][a-z]+(?:\\s+[A-Z][a-z]+){0,3})/i\n);\n\nconst phone = findValue(transcript,\n  /(?:phone|number|call\\s*(?:us|me)\\s*at)\\s*(?:is|:)?\\s*([\\d\\-\\(\\)\\+\\s]{7,})/i\n);\n\nconst email = findValue(transcript,\n  /(?:email|e-mail)\\s*(?:is|:)?\\s*([\\w.\\-+]+@[\\w.\\-]+\\.\\w+)/i\n);\n\nconst officeAddress = findValue(transcript,\n  /(?:office\\s*)?(?:address|location|located)\\s*(?:is|:)?\\s*(.+?)(?:\\.\\s|\\n|$)/i\n);\n\nconst timezone = findValue(transcript,\n  /(?:timezone|time\\s*zone)\\s*(?:is|:)?\\s*(.+?)(?:\\.|,|\\n|$)/i,\n  /\\b(Eastern|Central|Mountain|Pacific|EST|CST|MST|PST|ET|CT|MT|PT)\\b/i\n);\n\nconst servicesSupported = findList(transcript,\n  /(?:services?\\s*(?:offered|supported|we\\s*offer|include|provided|we\\s*provide))\\s*(?:are|:)?\\s*(.+?)(?:\\.\\s|\\n|$)/i\n);\n\nconst emergencyDef = findList(transcript,\n  /(?:emergency|emergencies)\\s*(?:definition|defined\\s*as|include|are|means?|triggers?|:)\\s*(.+?)(?:\\.\\s|\\n|$)/i\n);\n\nconst accountMemo = {\n  account_id: accountId,\n  company_name: companyName,\n  version: 1,\n  created_at: now,\n  updated_at: now,\n  type: 'demo',\n  status: 'active',\n  business_hours: {\n    days: 'Monday-Friday',\n    start: '8:00 AM',\n    end: '5:00 PM',\n    timezone: timezone || 'Local'\n  },\n  office_address: officeAddress,\n  services_supported: servicesSupported,\n  emergency_definition: emergencyDef,\n  emergency_routing_rules: [],\n  non_emergency_routing_rules: 'Take caller name, phone number, and message. Schedule callback during business hours.',\n  call_transfer_rules: {\n    timeout_seconds: 30,\n    max_retries: 2,\n    message_if_fails: 'I\\'m sorry, I wasn\\'t able to connect you. Can I take your name and number so someone can call you back shortly?'\n  },\n  integration_constraints: [],\n  after_hours_flow_summary: 'Greet caller, determine if emergency, if yes collect name/number/address and attempt dispatch, if no take message and assure next-day callback.',\n  office_hours_flow_summary: 'Greet caller, determine purpose, collect name and number, schedule appointment or transfer to team member, confirm next steps, close.',\n  owner_name: ownerName,\n  phone: phone,\n  email: email,\n  notes: '',\n  questions_or_unknowns: questions\n};\n\nreturn { json: { accountMemo, accountId } };"
+      },
+      "id": "extract-data",
+      "name": "Extract Structured Data (Regex)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [900, 240]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate Retell Agent Spec from Account Memo\n// Equivalent of lib/engine.ts generateRetellSpec()\n\nconst memo = $input.item.json.accountMemo;\nconst bizName = memo.company_name || memo.account_id;\nconst servicesText = memo.services_supported.length > 0 ? memo.services_supported.join(', ') : 'various services';\n\nconst systemPrompt = `You are a professional AI phone receptionist for ${bizName}. They offer ${servicesText}.\n\nTone: Be professional, friendly, and helpful.\nPrimary objective: Assist the caller and schedule appointments.\n\nIMPORTANT RULES:\n- Do NOT mention internal tools, functions, or systems to the caller.\n- Do NOT ask more than 3 questions in a row without providing value back.\n- Only collect information that is needed for routing and dispatch.\n- Always confirm details before ending the call.\n\nOffice Hours Call Flow (${memo.business_hours.days} ${memo.business_hours.start}-${memo.business_hours.end} ${memo.business_hours.timezone}):\n1. Greet the caller: \"Thank you for calling ${bizName}! How can I help you today?\"\n2. Determine the purpose of the call\n3. Collect the caller's name and callback number\n4. Schedule appointment or transfer to team member\n5. If transfer fails: follow the fallback protocol\n6. Confirm next steps\n7. Ask: \"Is there anything else I can help you with?\"\n8. Close politely\n\nAfter Hours Call Flow:\n1. Inform caller office is closed. Business hours: ${memo.business_hours.days} ${memo.business_hours.start}-${memo.business_hours.end}\n2. Ask if this is an emergency\n3. IF EMERGENCY: Collect name, phone, address. Attempt emergency dispatch.\n4. IF NOT EMERGENCY: Take message, assure next-day callback.\n5. Ask: \"Is there anything else I can help you with?\"\n6. Close politely\n\nCall Transfer Protocol:\n- Wait up to ${memo.call_transfer_rules.timeout_seconds} seconds\n- Retry up to ${memo.call_transfer_rules.max_retries} times\n- If fails: \"${memo.call_transfer_rules.message_if_fails}\"\n\nFallback Protocol:\n- Apologize, collect name/phone/description\n- Assure callback within 30 minutes during business hours`;\n\nconst retellSpec = {\n  agent_name: `${bizName} AI Receptionist`,\n  account_id: memo.account_id,\n  version: 1,\n  created_at: new Date().toISOString(),\n  voice_style: 'professional and friendly',\n  system_prompt: systemPrompt,\n  key_variables: {\n    timezone: memo.business_hours.timezone,\n    business_hours: `${memo.business_hours.days} ${memo.business_hours.start}-${memo.business_hours.end}`,\n    office_address: memo.office_address || 'Not provided',\n    emergency_routing: 'Primary on-call contact',\n    services: memo.services_supported\n  },\n  tool_invocation_placeholders: [\n    { name: 'schedule_appointment', description: 'Schedule a service appointment', parameters: { date: 'string', time: 'string', service_type: 'string', customer_name: 'string', phone: 'string' } },\n    { name: 'collect_customer_info', description: 'Collect caller contact information', parameters: { name: 'string', phone: 'string', address: 'string', notes: 'string' } },\n    { name: 'transfer_call', description: 'Transfer to human representative', parameters: { target: 'string', reason: 'string' } },\n    { name: 'log_emergency', description: 'Log emergency dispatch request', parameters: { caller_name: 'string', caller_phone: 'string', address: 'string', description: 'string' } }\n  ],\n  call_transfer_protocol: `Wait ${memo.call_transfer_rules.timeout_seconds}s, retry ${memo.call_transfer_rules.max_retries} times, fallback: collect info`,\n  fallback_protocol: 'Apologize, collect name/phone/description, assure callback within 30 minutes',\n  conversation_flow: {\n    office_hours_flow: memo.office_hours_flow_summary,\n    after_hours_flow: memo.after_hours_flow_summary,\n    opening: `Thank you for calling ${bizName}! How can I help you today?`,\n    closing: `Thank you for calling ${bizName}. Have a great day!`,\n    fallback: 'I\\'m sorry, I didn\\'t quite catch that. Could you please repeat that?'\n  }\n};\n\nreturn { json: { accountMemo: memo, retellSpec, accountId: memo.account_id } };"
+      },
+      "id": "generate-retell-spec",
+      "name": "Generate Retell Agent Spec",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 240]
+    },
+    {
+      "parameters": {
+        "fileName": "=/outputs/accounts/{{ $json.accountId }}/v1/account_memo.json",
+        "fileContent": "={{ JSON.stringify($json.accountMemo, null, 2) }}"
+      },
+      "id": "save-memo",
+      "name": "Save Account Memo v1",
+      "type": "n8n-nodes-base.writeFile",
+      "typeVersion": 1,
+      "position": [1340, 180]
+    },
+    {
+      "parameters": {
+        "fileName": "=/outputs/accounts/{{ $json.accountId }}/v1/retell_agent.json",
+        "fileContent": "={{ JSON.stringify($json.retellSpec, null, 2) }}"
+      },
+      "id": "save-retell",
+      "name": "Save Retell Spec v1",
+      "type": "n8n-nodes-base.writeFile",
+      "typeVersion": 1,
+      "position": [1340, 340]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: true, message: 'Demo transcript processed. v1 files created.', accountId: $json.accountId, version: 1, files: ['v1/account_memo.json', 'v1/retell_agent.json'] }) }}"
+      },
+      "id": "respond-success",
+      "name": "Respond Success",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1560, 240]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: false, message: 'type must be demo' }) }}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "respond-type-error",
+      "name": "Respond Type Error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [680, 440]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ success: false, message: 'accountId and transcript are required' }) }}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "id": "respond-input-error",
+      "name": "Respond Input Error",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 440]
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [{ "node": "Validate Type = demo", "type": "main", "index": 0 }]
+      ]
+    },
+    "Validate Type = demo": {
+      "main": [
+        [{ "node": "Validate Input", "type": "main", "index": 0 }],
+        [{ "node": "Respond Type Error", "type": "main", "index": 0 }]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [{ "node": "Extract Structured Data (Regex)", "type": "main", "index": 0 }],
+        [{ "node": "Respond Input Error", "type": "main", "index": 0 }]
+      ]
+    },
+    "Extract Structured Data (Regex)": {
+      "main": [
+        [{ "node": "Generate Retell Agent Spec", "type": "main", "index": 0 }]
+      ]
+    },
+    "Generate Retell Agent Spec": {
+      "main": [
+        [
+          { "node": "Save Account Memo v1", "type": "main", "index": 0 },
+          { "node": "Save Retell Spec v1", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Save Account Memo v1": {
+      "main": [
+        [{ "node": "Respond Success", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateId": "clara-ai-pipeline-a"
+  },
+  "tags": [
+    { "name": "clara-ai" },
+    { "name": "pipeline-a" },
+    { "name": "demo" }
+  ]
+}

@@ -1,0 +1,30 @@
+# ─────────────────────────────────────────────────
+# ONBOARDING TRANSCRIPT — Smith's Premium Plumbing Solutions
+# Account ID: smith-plumbing
+# ─────────────────────────────────────────────────
+
+This is the onboarding call for Smith's Plumbing Solutions. After reviewing the demo setup, here are some updates.
+
+The owner's name is John Michael Smith. The business name is Smith's Premium Plumbing Solutions — they've rebranded recently.
+
+They now have 12 employees, up from 8. They've expanded their service area to include Boulder and Fort Collins in addition to the Denver metro area.
+
+Business hours are now Monday through Saturday, 7:00 AM to 6:00 PM Mountain time.
+
+Services offered are: drain cleaning, pipe repair, water heater installation, emergency plumbing, bathroom remodeling, kitchen plumbing, sewer line repair, water filtration systems.
+
+Emergency definition now also includes: frozen pipes and water heater failure.
+
+The emergency contact is still John Smith at 303-555-0199, but they added a second on-call: Sarah Johnson, dispatch manager, at 303-555-0200. If both are unavailable, page the after-hours answering service at 303-555-0300.
+
+Their average job value has increased to $475. The pricing model is now flat-rate pricing for standard jobs plus hourly for complex work.
+
+Scheduling preferences: they want to offer online booking and prefer morning appointment slots.
+
+They switched their CRM to Jobber. Payment processor is now Stripe. They also use Google Calendar and Zapier as other tools.
+
+Tone should be warm and confident. The call objective is to convert inbound calls into booked appointments with a focus on upselling maintenance plans.
+
+Key selling points are: 24/7 emergency service, licensed and insured, free estimates, same-day service available, satisfaction guarantee, flexible financing options.
+
+Note: they want the AI agent to always mention their current promotion — $50 off any service over $200 for new customers.

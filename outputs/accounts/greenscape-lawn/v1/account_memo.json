@@ -1,0 +1,100 @@
+{
+  "account_id": "greenscape-lawn",
+  "company_name": "GreenScape Lawn & Landscape",
+  "version": 1,
+  "created_at": "2026-03-04T21:18:30.888Z",
+  "updated_at": "2026-03-04T21:18:30.888Z",
+  "type": "demo",
+  "status": "active",
+  "business_hours": {
+    "days": "Monday through Friday",
+    "start": "7:00 AM",
+    "end": "4:00 PM",
+    "timezone": "Pacific"
+  },
+  "office_address": "4100 SW Canyon Road, Portland, OR 97221",
+  "services_supported": [
+    "lawn mowing",
+    "landscape design",
+    "irrigation installation",
+    "tree trimming",
+    "mulching",
+    "seasonal cleanups",
+    "sod installation",
+    "hardscaping",
+    "outdoor lighting"
+  ],
+  "emergency_definition": [
+    "fallen tree on property",
+    "broken irrigation main flooding yard",
+    "storm damage requiring immediate cleanup"
+  ],
+  "emergency_routing_rules": [
+    {
+      "contact_name": "Maria Gonzalez",
+      "phone": "503-555-0178",
+      "role": "Primary on-call",
+      "order": 1,
+      "fallback": "send a crew within 4 hours and call the customer back to confirm arrival window"
+    }
+  ],
+  "non_emergency_routing_rules": "take the caller's name, address, and phone number, describe the work needed, and schedule a free on-site estimate",
+  "routing_rules": {
+    "emergency": [
+      {
+        "contact_name": "Maria Gonzalez",
+        "phone": "503-555-0178",
+        "role": "Primary on-call",
+        "order": 1,
+        "fallback": "send a crew within 4 hours and call the customer back to confirm arrival window"
+      }
+    ],
+    "non_emergency": "take the caller's name, address, and phone number, describe the work needed, and schedule a free on-site estimate"
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": 30,
+    "max_retries": 2,
+    "message_if_fails": "I'm sorry I can't connect you to our team right now. Can I take your details so we can schedule a callback?"
+  },
+  "integration_constraints": [],
+  "after_hours_flow_summary": "Greet caller, determine if emergency, if yes collect name/number/address and attempt dispatch, if no take message and assure next-day callback.",
+  "office_hours_flow_summary": "Greet caller, determine purpose, collect name and number, schedule appointment or transfer to team member, confirm next steps, close.",
+  "owner_name": "Maria Gonzalez",
+  "phone": "503-555-0178",
+  "email": "maria@greenscapepdx.com",
+  "website": "greenscapepdx.com",
+  "industry": "crews",
+  "years_in_business": 10,
+  "number_of_employees": 20,
+  "service_area": "the greater Portland",
+  "pricing_model": "per-project quotes for landscaping and monthly recurring for lawn maintenance",
+  "average_job_value": "2000 for landscaping projects and $150 per month for maintenance",
+  "peak_season": "spring and early summer",
+  "tone": "friendly",
+  "greeting_style": "Hey there, thanks for calling GreenScape! How can we make your yard look amazing today?",
+  "call_objective": "s is to schedule free estimates for new projects and sign up recurring lawn maintenance contracts",
+  "key_selling_points": [
+    "free estimates",
+    "certified arborist on staff",
+    "eco-friendly products",
+    "10 years in business",
+    "satisfaction guarantee",
+    "flexible scheduling"
+  ],
+  "objection_handling": [
+    "too expensive",
+    "already have a lawn guy",
+    "not sure what they need",
+    "want to wait until spring"
+  ],
+  "scheduling_preferences": "",
+  "follow_up_procedure": "send a digital proposal within 24 hours of the estimate, then follow up by text 3 days later",
+  "crm": "Jobber",
+  "scheduling_tool": "Jobber",
+  "payment_processor": "Square",
+  "other_tools": [
+    "Canva for design proposals and Instagram for marketing"
+  ],
+  "notes": "we offer 10% off the first month of any lawn maintenance contract.",
+  "questions_or_unknowns": []
+}

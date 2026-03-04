@@ -1,0 +1,99 @@
+{
+  "account_id": "smith-plumbing",
+  "company_name": "Smith's Premium Plumbing Solutions",
+  "version": 2,
+  "created_at": "2026-03-04T21:18:30.943Z",
+  "updated_at": "2026-03-04T21:18:30.945Z",
+  "type": "onboarding",
+  "status": "active",
+  "business_hours": {
+    "days": "Monday through Saturday",
+    "start": "7:00 AM",
+    "end": "6:00 PM",
+    "timezone": "Mountain"
+  },
+  "office_address": "1234 Main Street, Denver, CO 80202",
+  "services_supported": [
+    "drain cleaning",
+    "pipe repair",
+    "water heater installation",
+    "emergency plumbing",
+    "bathroom remodeling",
+    "kitchen plumbing",
+    "sewer line repair",
+    "water filtration systems"
+  ],
+  "emergency_definition": [
+    "frozen pipes and water heater failure"
+  ],
+  "emergency_routing_rules": [
+    {
+      "contact_name": "John Smith",
+      "phone": "303-555-0199",
+      "role": "Primary on-call",
+      "order": 1,
+      "fallback": "Leave voicemail and assure caller of callback within 15 minutes"
+    }
+  ],
+  "non_emergency_routing_rules": "Take caller name, phone number, and message. Schedule callback during business hours.",
+  "routing_rules": {
+    "emergency": [
+      {
+        "contact_name": "John Smith",
+        "phone": "303-555-0199",
+        "role": "Primary on-call",
+        "order": 1,
+        "fallback": "Leave voicemail and assure caller of callback within 15 minutes"
+      }
+    ],
+    "non_emergency": "Take caller name, phone number, and message. Schedule callback during business hours."
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": 30,
+    "max_retries": 2,
+    "message_if_fails": "I'm sorry, I wasn't able to connect you. Can I take your name and number so someone can call you back shortly?"
+  },
+  "integration_constraints": [
+    "never create jobs for sprinkler systems in our system",
+    "those go to a separate contractor"
+  ],
+  "after_hours_flow_summary": "Greet caller, determine if emergency, if yes collect name/number/address and attempt dispatch, if no take message and assure next-day callback.",
+  "office_hours_flow_summary": "Greet caller, determine purpose, collect name and number, schedule appointment or transfer to team member, confirm next steps, close.",
+  "owner_name": "John Michael Smith",
+  "phone": "303-555-0147",
+  "email": "john@smithplumbing.com",
+  "website": "smithplumbing.com",
+  "industry": "residential and commercial plumbing",
+  "years_in_business": 12,
+  "number_of_employees": 12,
+  "service_area": "the greater Denver metro area",
+  "pricing_model": "now flat-rate pricing for standard jobs plus hourly for complex work",
+  "average_job_value": "has increased to $475",
+  "peak_season": "winter because of frozen pipe emergencies",
+  "tone": "warm and confident",
+  "greeting_style": "Thanks for calling Smith's Plumbing, how can we help you today?",
+  "call_objective": "to convert inbound calls into booked appointments with a focus on upselling maintenance plans",
+  "key_selling_points": [
+    "24/7 emergency service",
+    "licensed and insured",
+    "free estimates",
+    "same-day service available",
+    "satisfaction guarantee",
+    "flexible financing options"
+  ],
+  "objection_handling": [
+    "pricing concerns",
+    "availability questions",
+    "warranty coverage"
+  ],
+  "scheduling_preferences": "they want to offer online booking and prefer morning appointment slots",
+  "follow_up_procedure": "call customer within 24 hours after service completion",
+  "crm": "Jobber",
+  "scheduling_tool": "Housecall Pro",
+  "payment_processor": "Stripe",
+  "other_tools": [
+    "Google Calendar and Zapier as other tools"
+  ],
+  "notes": "they want the AI agent to always mention their current promotion — $50 off any service over $200 for new customers.",
+  "questions_or_unknowns": []
+}

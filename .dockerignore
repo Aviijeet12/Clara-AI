@@ -1,0 +1,18 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build output (rebuilt in Docker)
+.next
+
+# Generated outputs (mounted as volume)
+outputs
+
+# Dev files
+*.md
+!README.md
+.git
+.gitignore
+.vscode
+.env
+.env.local

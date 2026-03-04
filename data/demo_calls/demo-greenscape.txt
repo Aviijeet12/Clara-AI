@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────
+# DEMO TRANSCRIPT — GreenScape Lawn & Landscape
+# Account ID: greenscape-lawn
+# ─────────────────────────────────────────────────
+
+Hello! My name is Maria Gonzalez and I own GreenScape Lawn & Landscape. We've been in business for 10 years. We currently have 20 employees, mostly field crews.
+
+Our industry is landscaping and lawn care. We handle both residential and commercial properties.
+
+Business hours are Monday through Friday, 7:00 AM to 4:00 PM Pacific time. In summer we extend to 6:00 PM on weekdays.
+
+Services offered are: lawn mowing, landscape design, irrigation installation, tree trimming, mulching, seasonal cleanups, sod installation, hardscaping, outdoor lighting.
+
+Our service area is the greater Portland, Oregon metro area including Beaverton, Tigard, Lake Oswego, and Hillsboro.
+
+An emergency is defined as: fallen tree on property, broken irrigation main flooding yard, storm damage requiring immediate cleanup.
+
+For emergencies, the emergency contact is Maria Gonzalez at 503-555-0178. If I'm unavailable, contact the operations manager Jake Thompson at 503-555-0180. Fallback: send a crew within 4 hours and call the customer back to confirm arrival window.
+
+Non-emergency calls should take the caller's name, address, and phone number, describe the work needed, and schedule a free on-site estimate.
+
+If a transfer fails, say: "I'm sorry I can't connect you to our team right now. Can I take your details so we can schedule a callback?"
+
+Our pricing model is per-project quotes for landscaping and monthly recurring for lawn maintenance. Average job value is $2000 for landscaping projects and $150 per month for maintenance. Our busiest season is spring and early summer.
+
+The goal of the calls is to schedule free estimates for new projects and sign up recurring lawn maintenance contracts. Our tone should be friendly, enthusiastic, and outdoorsy.
+
+Greeting style: "Hey there, thanks for calling GreenScape! How can we make your yard look amazing today?"
+
+Key selling points are: free estimates, certified arborist on staff, eco-friendly products, 10 years in business, satisfaction guarantee, flexible scheduling.
+
+Common objections include: too expensive, already have a lawn guy, not sure what they need, want to wait until spring.
+
+We use Jobber as our CRM. Our scheduling tool is also Jobber. Payment processor is Square. We also use Canva for design proposals and Instagram for marketing.
+
+My phone is 503-555-0178. Email is maria@greenscapepdx.com. Website is greenscapepdx.com. Our address is 4100 SW Canyon Road, Portland, OR 97221.
+
+Follow-up procedure: send a digital proposal within 24 hours of the estimate, then follow up by text 3 days later. Note: we offer 10% off the first month of any lawn maintenance contract.

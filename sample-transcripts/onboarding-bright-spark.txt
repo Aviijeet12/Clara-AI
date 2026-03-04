@@ -1,0 +1,32 @@
+# ─────────────────────────────────────────────────────
+# ONBOARDING TRANSCRIPT — Bright Spark Electric Co.
+# Account ID: bright-spark-electric
+# ─────────────────────────────────────────────────────
+
+This is the onboarding follow-up call for Bright Spark Electrical Services. We're updating their account based on their actual onboarding session.
+
+First, the owner's name is Rachel Marie Torres. The business name has been updated — they recently rebranded to Bright Spark Electric Co. to sound more modern.
+
+They've grown and now have 9 employees. Business hours are now Monday through Saturday, 7:00 AM to 6:00 PM Central time.
+
+They expanded their service area to include Lakeway, Dripping Springs, and Buda on top of their existing coverage.
+
+Services offered are: panel upgrades, whole-home rewiring, ceiling fan installation, landscape lighting, EV charger installation, outlet and switch repair, smoke detector installation, generator installation, smart home wiring, electrical inspections.
+
+Emergency definition now also includes: tripped main breaker that won't reset, flickering lights with burning smell, smoke from outlet.
+
+The emergency contact is still Rachel Torres at 512-555-0389. They added a night dispatcher Carlos Mendez at 512-555-0450. Fallback is the answering service at 512-555-0500.
+
+Their average job value has gone up to $850 since they started doing more EV charger and generator work. The pricing model is still flat-rate for standard jobs, but they now offer financing through GreenSky for jobs over $1000.
+
+Scheduling preferences: they want to offer online booking through their website and prefer to batch appointments by geographic zone to reduce drive time.
+
+They switched their CRM to ServiceTitan. Payment processor is now Stripe because they wanted better online payment support. Other tools they use include Zapier, Google Calendar, and Canva for marketing.
+
+Tone should be warm, confident, and educational — they want the AI agent to briefly explain why certain electrical work matters for safety.
+
+The call objective is to convert inbound calls into booked on-site estimates, with a secondary goal of upselling the annual electrical maintenance plan ($199/year).
+
+Key selling points are: same-day emergency service, licensed and bonded, upfront flat-rate pricing, lifetime warranty on workmanship, family-owned local business, financing available, 500 plus five-star Google reviews.
+
+Note: they want the AI to always mention their current promotion — free smart thermostat installation (valued at $150) with any panel upgrade booked this month. Also mention they are BBB A+ rated.

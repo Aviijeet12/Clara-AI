@@ -1,0 +1,241 @@
+{
+  "account_id": "smith-plumbing",
+  "from_version": 2,
+  "to_version": 3,
+  "created_at": "2026-03-04T21:33:44.815Z",
+  "total_changes": 23,
+  "changes": [
+    {
+      "field": "company_name",
+      "path": "company_name",
+      "old_value": "Smith's Premium Plumbing Solutions",
+      "new_value": "Smith's Plumbing Solutions",
+      "change_type": "updated"
+    },
+    {
+      "field": "days",
+      "path": "business_hours.days",
+      "old_value": "Monday through Saturday",
+      "new_value": "Monday through Friday",
+      "change_type": "updated"
+    },
+    {
+      "field": "start",
+      "path": "business_hours.start",
+      "old_value": "7:00 AM",
+      "new_value": "8:00 AM",
+      "change_type": "updated"
+    },
+    {
+      "field": "end",
+      "path": "business_hours.end",
+      "old_value": "6:00 PM",
+      "new_value": "5:00 PM",
+      "change_type": "updated"
+    },
+    {
+      "field": "timezone",
+      "path": "business_hours.timezone",
+      "old_value": "Mountain",
+      "new_value": "Central",
+      "change_type": "updated"
+    },
+    {
+      "field": "services_supported",
+      "path": "services_supported",
+      "old_value": [
+        "drain cleaning",
+        "pipe repair",
+        "water heater installation",
+        "emergency plumbing",
+        "bathroom remodeling",
+        "kitchen plumbing",
+        "sewer line repair",
+        "water filtration systems"
+      ],
+      "new_value": [
+        "drain cleaning",
+        "pipe repair",
+        "water heater installation",
+        "emergency plumbing",
+        "bathroom remodeling"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency_definition",
+      "path": "emergency_definition",
+      "old_value": [
+        "frozen pipes and water heater failure"
+      ],
+      "new_value": [
+        "flooding",
+        "burst pipes",
+        "sewage backup",
+        "gas leak smell near plumbing",
+        "no hot water in winter"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency_routing_rules",
+      "path": "emergency_routing_rules",
+      "old_value": [
+        {
+          "contact_name": "John Smith",
+          "phone": "303-555-0199",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "Leave voicemail and assure caller of callback within 15 minutes"
+        }
+      ],
+      "new_value": [
+        {
+          "contact_name": "John Smith",
+          "phone": "303-555-0199",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "leave a voicemail and we guarantee a callback within 15 minutes"
+        }
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "non_emergency_routing_rules",
+      "path": "non_emergency_routing_rules",
+      "old_value": "Take caller name, phone number, and message. Schedule callback during business hours.",
+      "new_value": "be routed to the office during business hours",
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency",
+      "path": "routing_rules.emergency",
+      "old_value": [
+        {
+          "contact_name": "John Smith",
+          "phone": "303-555-0199",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "Leave voicemail and assure caller of callback within 15 minutes"
+        }
+      ],
+      "new_value": [
+        {
+          "contact_name": "John Smith",
+          "phone": "303-555-0199",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "leave a voicemail and we guarantee a callback within 15 minutes"
+        }
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "non_emergency",
+      "path": "routing_rules.non_emergency",
+      "old_value": "Take caller name, phone number, and message. Schedule callback during business hours.",
+      "new_value": "be routed to the office during business hours",
+      "change_type": "updated"
+    },
+    {
+      "field": "message_if_fails",
+      "path": "call_transfer_rules.message_if_fails",
+      "old_value": "I'm sorry, I wasn't able to connect you. Can I take your name and number so someone can call you back shortly?",
+      "new_value": "I apologize, I'm unable to connect you right now. Can I take your name and number so we can call you back within 30 minutes?",
+      "change_type": "updated"
+    },
+    {
+      "field": "owner_name",
+      "path": "owner_name",
+      "old_value": "John Michael Smith",
+      "new_value": "John Smith",
+      "change_type": "updated"
+    },
+    {
+      "field": "number_of_employees",
+      "path": "number_of_employees",
+      "old_value": 12,
+      "new_value": 8,
+      "change_type": "updated"
+    },
+    {
+      "field": "pricing_model",
+      "path": "pricing_model",
+      "old_value": "now flat-rate pricing for standard jobs plus hourly for complex work",
+      "new_value": "hourly rate plus materials",
+      "change_type": "updated"
+    },
+    {
+      "field": "average_job_value",
+      "path": "average_job_value",
+      "old_value": "has increased to $475",
+      "new_value": "350",
+      "change_type": "updated"
+    },
+    {
+      "field": "tone",
+      "path": "tone",
+      "old_value": "warm and confident",
+      "new_value": "friendly and professional",
+      "change_type": "updated"
+    },
+    {
+      "field": "call_objective",
+      "path": "call_objective",
+      "old_value": "to convert inbound calls into booked appointments with a focus on upselling maintenance plans",
+      "new_value": "to book more service appointments and reduce missed calls",
+      "change_type": "updated"
+    },
+    {
+      "field": "key_selling_points",
+      "path": "key_selling_points",
+      "old_value": [
+        "24/7 emergency service",
+        "licensed and insured",
+        "free estimates",
+        "same-day service available",
+        "satisfaction guarantee",
+        "flexible financing options"
+      ],
+      "new_value": [
+        "24/7 emergency service",
+        "licensed and insured",
+        "free estimates",
+        "same-day service available"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "crm",
+      "path": "crm",
+      "old_value": "Jobber",
+      "new_value": "ServiceTitan",
+      "change_type": "updated"
+    },
+    {
+      "field": "payment_processor",
+      "path": "payment_processor",
+      "old_value": "Stripe",
+      "new_value": "Square",
+      "change_type": "updated"
+    },
+    {
+      "field": "other_tools",
+      "path": "other_tools",
+      "old_value": [
+        "Google Calendar and Zapier as other tools"
+      ],
+      "new_value": [
+        "QuickBooks for accounting"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "notes",
+      "path": "notes",
+      "old_value": "they want the AI agent to always mention their current promotion — $50 off any service over $200 for new customers.",
+      "new_value": "we offer a 10% discount for first-time customers.",
+      "change_type": "updated"
+    }
+  ]
+}

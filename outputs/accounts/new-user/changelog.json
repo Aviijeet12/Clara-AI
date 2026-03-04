@@ -1,0 +1,60 @@
+{
+  "account_id": "new-user",
+  "from_version": 1,
+  "to_version": 2,
+  "created_at": "2026-03-04T21:35:58.464Z",
+  "total_changes": 7,
+  "changes": [
+    {
+      "field": "days",
+      "path": "business_hours.days",
+      "old_value": "Monday to Friday",
+      "new_value": "Monday through Friday",
+      "change_type": "updated"
+    },
+    {
+      "field": "start",
+      "path": "business_hours.start",
+      "old_value": "8:00 AM",
+      "new_value": "8 AM",
+      "change_type": "updated"
+    },
+    {
+      "field": "end",
+      "path": "business_hours.end",
+      "old_value": "5",
+      "new_value": "6 PM",
+      "change_type": "updated"
+    },
+    {
+      "field": "timezone",
+      "path": "business_hours.timezone",
+      "old_value": "Local",
+      "new_value": "Eastern",
+      "change_type": "updated"
+    },
+    {
+      "field": "non_emergency_routing_rules",
+      "path": "non_emergency_routing_rules",
+      "old_value": "Take caller name, phone number, and message. Schedule callback during business hours.",
+      "new_value": "?",
+      "change_type": "updated"
+    },
+    {
+      "field": "non_emergency",
+      "path": "routing_rules.non_emergency",
+      "old_value": "Take caller name, phone number, and message. Schedule callback during business hours.",
+      "new_value": "?",
+      "change_type": "updated"
+    },
+    {
+      "field": "integration_constraints",
+      "path": "integration_constraints",
+      "old_value": [],
+      "new_value": [
+        "sprinkler installation jobs automatically in ServiceTrade"
+      ],
+      "change_type": "updated"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────
+# DEMO TRANSCRIPT — Comfort Zone HVAC Services
+# Account ID: comfort-zone-hvac
+# ─────────────────────────────────────────────────
+
+Hi, my name is David Park and I own Comfort Zone HVAC Services. We've been in business for 15 years. Our company has 10 employees.
+
+Our industry is heating, ventilation, and air conditioning for residential properties.
+
+Business hours are Monday through Friday, 8:00 AM to 6:00 PM Eastern time. We have an after-hours emergency line available 24/7.
+
+Services offered are: AC installation, AC repair, furnace installation, furnace repair, duct cleaning, thermostat installation, heat pump service, indoor air quality testing, preventive maintenance plans.
+
+Our service area is the greater Atlanta metro area including Marietta, Roswell, Alpharetta, Decatur, and Sandy Springs.
+
+An emergency is defined as: complete AC failure during summer heat wave, furnace failure during winter freeze, gas smell near HVAC equipment, carbon monoxide detector alarm related to heating system.
+
+For emergencies, the emergency contact is David Park at 678-555-0234. If I'm unavailable, contact our senior technician Marcus Williams at 678-555-0236. Fallback: dispatch the on-call service van and guarantee arrival within 90 minutes.
+
+Non-emergency calls should collect the caller's name, address, phone number, and a description of the issue, then schedule the next available appointment.
+
+If a transfer fails, say: "I apologize for the inconvenience. Let me take your information and our dispatch team will call you back within 20 minutes."
+
+Our pricing model is flat-rate pricing for standard repairs and quoted pricing for installations. The average job value is $500. Our busiest season is summer because of AC breakdowns.
+
+The goal of the calls is to book diagnostic appointments and sell maintenance plans. Our tone should be professional, empathetic, and knowledgeable.
+
+Greeting style: "Thanks for calling Comfort Zone HVAC! You've reached our service line. How may I assist you today?"
+
+Key selling points are: same-day emergency service, 15 years of experience, satisfaction guarantee, flexible financing, licensed and insured, energy-efficient solutions.
+
+Common objections include: cost too high, want to get multiple quotes, not sure if repair or replace, timing of appointment.
+
+We use Housecall Pro as our CRM. Our scheduling tool is also Housecall Pro. Payment processor is Stripe. We also use Google Workspace and Mailchimp for marketing.
+
+My phone is 678-555-0234. Email is david@comfortzoneatlanta.com. Website is comfortzoneatlanta.com. Our address is 2850 Peachtree Industrial Blvd, Atlanta, GA 30341.
+
+Follow-up procedure: send email summary within 2 hours of the service call, then call customer 3 days later to check satisfaction. Note: we offer $75 off first repair for new customers.

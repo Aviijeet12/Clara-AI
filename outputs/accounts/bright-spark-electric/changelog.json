@@ -1,0 +1,237 @@
+{
+  "account_id": "bright-spark-electric",
+  "from_version": 1,
+  "to_version": 2,
+  "created_at": "2026-03-04T21:18:30.974Z",
+  "total_changes": 21,
+  "changes": [
+    {
+      "field": "company_name",
+      "path": "company_name",
+      "old_value": "Bright Spark Electrical Services",
+      "new_value": "Bright Spark Electric Co",
+      "change_type": "updated"
+    },
+    {
+      "field": "days",
+      "path": "business_hours.days",
+      "old_value": "Monday through Friday",
+      "new_value": "Monday through Saturday",
+      "change_type": "updated"
+    },
+    {
+      "field": "end",
+      "path": "business_hours.end",
+      "old_value": "5:00 PM",
+      "new_value": "6:00 PM",
+      "change_type": "updated"
+    },
+    {
+      "field": "services_supported",
+      "path": "services_supported",
+      "old_value": [
+        "panel upgrades",
+        "whole-home rewiring",
+        "ceiling fan installation",
+        "landscape lighting",
+        "EV charger installation",
+        "outlet and switch repair",
+        "smoke detector installation"
+      ],
+      "new_value": [
+        "panel upgrades",
+        "whole-home rewiring",
+        "ceiling fan installation",
+        "landscape lighting",
+        "EV charger installation",
+        "outlet and switch repair",
+        "smoke detector installation",
+        "generator installation",
+        "smart home wiring",
+        "electrical inspections"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency_definition",
+      "path": "emergency_definition",
+      "old_value": [
+        "sparking outlets",
+        "burning smell from wiring",
+        "total power loss",
+        "exposed live wires",
+        "electrical fire hazard"
+      ],
+      "new_value": [
+        "tripped main breaker that won't reset",
+        "flickering lights with burning smell",
+        "smoke from outlet"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency_routing_rules",
+      "path": "emergency_routing_rules",
+      "old_value": [
+        {
+          "contact_name": "Rachel Torres",
+          "phone": "512-555-0389",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "take all details and assure callback within 10 minutes"
+        }
+      ],
+      "new_value": [
+        {
+          "contact_name": "Rachel Torres",
+          "phone": "512-555-0389",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "is the answering service at 512-555-0500"
+        }
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "non_emergency_routing_rules",
+      "path": "non_emergency_routing_rules",
+      "old_value": "take the caller's name and number, describe the issue, and schedule a next-day appointment slot",
+      "new_value": "Take caller name, phone number, and message. Schedule callback during business hours.",
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency",
+      "path": "routing_rules.emergency",
+      "old_value": [
+        {
+          "contact_name": "Rachel Torres",
+          "phone": "512-555-0389",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "take all details and assure callback within 10 minutes"
+        }
+      ],
+      "new_value": [
+        {
+          "contact_name": "Rachel Torres",
+          "phone": "512-555-0389",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "is the answering service at 512-555-0500"
+        }
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "non_emergency",
+      "path": "routing_rules.non_emergency",
+      "old_value": "take the caller's name and number, describe the issue, and schedule a next-day appointment slot",
+      "new_value": "Take caller name, phone number, and message. Schedule callback during business hours.",
+      "change_type": "updated"
+    },
+    {
+      "field": "message_if_fails",
+      "path": "call_transfer_rules.message_if_fails",
+      "old_value": "I'm sorry I couldn't connect you directly. Let me get your name and number and someone will call you back within 30 minutes.",
+      "new_value": "I'm sorry, I wasn't able to connect you. Can I take your name and number so someone can call you back shortly?",
+      "change_type": "updated"
+    },
+    {
+      "field": "owner_name",
+      "path": "owner_name",
+      "old_value": "Rachel Torres",
+      "new_value": "Rachel Marie Torres",
+      "change_type": "updated"
+    },
+    {
+      "field": "number_of_employees",
+      "path": "number_of_employees",
+      "old_value": 5,
+      "new_value": 9,
+      "change_type": "updated"
+    },
+    {
+      "field": "average_job_value",
+      "path": "average_job_value",
+      "old_value": "around $600",
+      "new_value": "has gone up to $850 since they started doing more EV charger and generator work",
+      "change_type": "updated"
+    },
+    {
+      "field": "tone",
+      "path": "tone",
+      "old_value": "friendly",
+      "new_value": "warm",
+      "change_type": "updated"
+    },
+    {
+      "field": "call_objective",
+      "path": "call_objective",
+      "old_value": "s is to qualify leads and book on-site estimates",
+      "new_value": "to convert inbound calls into booked on-site estimates",
+      "change_type": "updated"
+    },
+    {
+      "field": "key_selling_points",
+      "path": "key_selling_points",
+      "old_value": [
+        "same-day emergency service",
+        "licensed and bonded",
+        "upfront flat-rate pricing",
+        "lifetime warranty on workmanship",
+        "family-owned local business"
+      ],
+      "new_value": [
+        "same-day emergency service",
+        "licensed and bonded",
+        "upfront flat-rate pricing",
+        "lifetime warranty on workmanship",
+        "family-owned local business",
+        "financing available",
+        "500 plus five-star Google reviews"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "scheduling_preferences",
+      "path": "scheduling_preferences",
+      "old_value": "",
+      "new_value": "they want to offer online booking through their website and prefer to batch appointments by geographic zone to reduce drive time",
+      "change_type": "added"
+    },
+    {
+      "field": "crm",
+      "path": "crm",
+      "old_value": "QuickBooks",
+      "new_value": "ServiceTitan",
+      "change_type": "updated"
+    },
+    {
+      "field": "payment_processor",
+      "path": "payment_processor",
+      "old_value": "Square",
+      "new_value": "Stripe because they wanted better online payment support",
+      "change_type": "updated"
+    },
+    {
+      "field": "other_tools",
+      "path": "other_tools",
+      "old_value": [
+        "Google Business Profile for reviews"
+      ],
+      "new_value": [
+        "they use include Zapier",
+        "Google Calendar",
+        "and Canva for marketing"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "notes",
+      "path": "notes",
+      "old_value": "always mention we offer a free electrical safety inspection with any service call over $200.",
+      "new_value": "they want the AI to always mention their current promotion — free smart thermostat installation (valued at $150) with any panel upgrade booked this month. Also mention they are BBB A+ rated.",
+      "change_type": "updated"
+    }
+  ]
+}

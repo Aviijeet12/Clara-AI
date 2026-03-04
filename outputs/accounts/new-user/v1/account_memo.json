@@ -1,0 +1,62 @@
+{
+  "account_id": "new-user",
+  "company_name": "",
+  "version": 1,
+  "created_at": "2026-03-04T21:35:32.840Z",
+  "updated_at": "2026-03-04T21:35:32.840Z",
+  "type": "demo",
+  "status": "active",
+  "business_hours": {
+    "days": "Monday to Friday",
+    "start": "8:00 AM",
+    "end": "5",
+    "timezone": "Local"
+  },
+  "office_address": "",
+  "services_supported": [],
+  "emergency_definition": [
+    "Those calls should be transferred immediately to our on-call technician"
+  ],
+  "emergency_routing_rules": [],
+  "non_emergency_routing_rules": "Take caller name, phone number, and message. Schedule callback during business hours.",
+  "routing_rules": {
+    "emergency": [],
+    "non_emergency": "Take caller name, phone number, and message. Schedule callback during business hours."
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": 30,
+    "max_retries": 2,
+    "message_if_fails": "I'm sorry, I wasn't able to connect you. Can I take your name and number so someone can call you back shortly?"
+  },
+  "integration_constraints": [],
+  "after_hours_flow_summary": "Greet caller, determine if emergency, if yes collect name/number/address and attempt dispatch, if no take message and assure next-day callback.",
+  "office_hours_flow_summary": "Greet caller, determine purpose, collect name and number, schedule appointment or transfer to team member, confirm next steps, close.",
+  "owner_name": "",
+  "phone": "",
+  "email": "",
+  "website": "",
+  "industry": "",
+  "years_in_business": null,
+  "number_of_employees": null,
+  "service_area": "",
+  "pricing_model": "",
+  "average_job_value": "",
+  "peak_season": "",
+  "tone": "",
+  "greeting_style": "",
+  "call_objective": "",
+  "key_selling_points": [],
+  "objection_handling": [],
+  "scheduling_preferences": "",
+  "follow_up_procedure": "",
+  "crm": "",
+  "scheduling_tool": "",
+  "payment_processor": "",
+  "other_tools": [],
+  "notes": "",
+  "questions_or_unknowns": [
+    "What is the business/company name?",
+    "What is the owner's name?",
+    "Who should be contacted for emergencies? (name, phone, order, fallback)"
+  ]
+}

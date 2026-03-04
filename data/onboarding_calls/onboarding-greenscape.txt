@@ -1,0 +1,32 @@
+# ─────────────────────────────────────────────────
+# ONBOARDING TRANSCRIPT — GreenScape Lawn & Landscape
+# Account ID: greenscape-lawn
+# ─────────────────────────────────────────────────
+
+This is the onboarding call for GreenScape Lawn & Landscape. Updating account after onboarding session.
+
+The business name is now GreenScape Pro Lawn & Landscape — they're rebranding to emphasize their professional and commercial capabilities.
+
+They now have 28 employees. Business hours are now Monday through Saturday, 6:30 AM to 5:00 PM Pacific time. Added Saturday for residential appointments.
+
+Services offered are: lawn mowing, landscape design, irrigation installation, tree trimming, mulching, seasonal cleanups, sod installation, hardscaping, outdoor lighting, drainage solutions, snow removal, artificial turf installation.
+
+Service area expanded to include Gresham, Milwaukie, and West Linn.
+
+Emergency definition now also includes: severe soil erosion threatening foundation, downed power line tangled in trees — do NOT approach, call utility company.
+
+Integration constraints: never schedule tree removal jobs without a city permit number on file. Also never quote snow removal during summer months.
+
+The emergency contact is still Maria Gonzalez at 503-555-0178. Added a field supervisor, Derek Kim, at 503-555-0185 for urgent on-site issues. Fallback: have the crew lead text a status update to the customer within 1 hour.
+
+They switched from Jobber to Service Autopilot as their CRM. Payment processor is now Stripe. They also use Aspire for estimating and LMN for time tracking.
+
+Average job value for landscaping is now $3500. Lawn maintenance is $175 per month. Pricing model remains per-project plus monthly recurring.
+
+Tone should be friendly, enthusiastic, and confident. Call objective is now to schedule estimates, sell annual maintenance contracts, and cross-sell seasonal add-on services.
+
+Key selling points are: free estimates, certified arborist on staff, eco-friendly products, 10 years in business, satisfaction guarantee, flexible scheduling, commercial and HOA expertise, snow removal available.
+
+Scheduling preferences: batch estimates by neighborhood to save drive time, prefer Tuesday and Thursday for new consultations.
+
+Note: current promotion is free spring cleanup (valued at $250) with any new annual lawn maintenance contract signed this month.

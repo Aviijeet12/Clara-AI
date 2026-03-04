@@ -1,0 +1,98 @@
+{
+  "account_id": "smith-plumbing",
+  "company_name": "Smith's Plumbing Solutions",
+  "version": 3,
+  "created_at": "2026-03-04T21:33:44.808Z",
+  "updated_at": "2026-03-04T21:33:44.814Z",
+  "type": "onboarding",
+  "status": "active",
+  "business_hours": {
+    "days": "Monday through Friday",
+    "start": "8:00 AM",
+    "end": "5:00 PM",
+    "timezone": "Central"
+  },
+  "office_address": "1234 Main Street, Denver, CO 80202",
+  "services_supported": [
+    "drain cleaning",
+    "pipe repair",
+    "water heater installation",
+    "emergency plumbing",
+    "bathroom remodeling"
+  ],
+  "emergency_definition": [
+    "flooding",
+    "burst pipes",
+    "sewage backup",
+    "gas leak smell near plumbing",
+    "no hot water in winter"
+  ],
+  "emergency_routing_rules": [
+    {
+      "contact_name": "John Smith",
+      "phone": "303-555-0199",
+      "role": "Primary on-call",
+      "order": 1,
+      "fallback": "leave a voicemail and we guarantee a callback within 15 minutes"
+    }
+  ],
+  "non_emergency_routing_rules": "be routed to the office during business hours",
+  "routing_rules": {
+    "emergency": [
+      {
+        "contact_name": "John Smith",
+        "phone": "303-555-0199",
+        "role": "Primary on-call",
+        "order": 1,
+        "fallback": "leave a voicemail and we guarantee a callback within 15 minutes"
+      }
+    ],
+    "non_emergency": "be routed to the office during business hours"
+  },
+  "call_transfer_rules": {
+    "timeout_seconds": 30,
+    "max_retries": 2,
+    "message_if_fails": "I apologize, I'm unable to connect you right now. Can I take your name and number so we can call you back within 30 minutes?"
+  },
+  "integration_constraints": [
+    "never create jobs for sprinkler systems in our system",
+    "those go to a separate contractor"
+  ],
+  "after_hours_flow_summary": "Greet caller, determine if emergency, if yes collect name/number/address and attempt dispatch, if no take message and assure next-day callback.",
+  "office_hours_flow_summary": "Greet caller, determine purpose, collect name and number, schedule appointment or transfer to team member, confirm next steps, close.",
+  "owner_name": "John Smith",
+  "phone": "303-555-0147",
+  "email": "john@smithplumbing.com",
+  "website": "smithplumbing.com",
+  "industry": "residential and commercial plumbing",
+  "years_in_business": 12,
+  "number_of_employees": 8,
+  "service_area": "the greater Denver metro area",
+  "pricing_model": "hourly rate plus materials",
+  "average_job_value": "350",
+  "peak_season": "winter because of frozen pipe emergencies",
+  "tone": "friendly and professional",
+  "greeting_style": "Thanks for calling Smith's Plumbing, how can we help you today?",
+  "call_objective": "to book more service appointments and reduce missed calls",
+  "key_selling_points": [
+    "24/7 emergency service",
+    "licensed and insured",
+    "free estimates",
+    "same-day service available"
+  ],
+  "objection_handling": [
+    "pricing concerns",
+    "availability questions",
+    "warranty coverage"
+  ],
+  "scheduling_preferences": "they want to offer online booking and prefer morning appointment slots",
+  "follow_up_procedure": "call customer within 24 hours after service completion",
+  "crm": "ServiceTitan",
+  "scheduling_tool": "Housecall Pro",
+  "payment_processor": "Square",
+  "other_tools": [
+    "QuickBooks for accounting"
+  ],
+  "notes": "we offer a 10% discount for first-time customers.",
+  "questions_or_unknowns": []
+}

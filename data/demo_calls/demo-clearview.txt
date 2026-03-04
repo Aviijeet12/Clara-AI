@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────
+# DEMO TRANSCRIPT — ClearView Window Cleaning
+# Account ID: clearview-windows
+# ─────────────────────────────────────────────────
+
+Hi, my name is Tom Bradley and I own ClearView Window Cleaning. We've been in business for 5 years. We have 6 employees.
+
+Our industry is window cleaning and exterior cleaning for residential and commercial clients.
+
+Business hours are Monday through Friday, 9:00 AM to 5:00 PM Mountain time.
+
+Services offered are: residential window cleaning, commercial window cleaning, pressure washing, gutter cleaning, solar panel cleaning, screen repair and replacement.
+
+Our service area is the greater Salt Lake City area including Park City, Sandy, Draper, and Provo.
+
+An emergency is defined as: broken window requiring board-up, storm damage to windows needing immediate assessment, post-construction window cleanup required before building inspection.
+
+For emergencies, the emergency contact is Tom Bradley at 801-555-0322. Fallback: take the caller's information and guarantee a callback within 1 hour during business hours.
+
+Non-emergency calls should collect name, phone, address, number of windows or description of the job, and schedule an estimate.
+
+If a transfer fails, say: "Sorry about that! Let me grab your name and number and I'll make sure someone gets back to you today."
+
+Our pricing model is per-window pricing for residential and per-square-foot for commercial contracts. Average job value is $250 for residential and $1200 for commercial. Our busiest season is spring because everyone wants clean windows after winter.
+
+The goal of the calls is to book free on-site estimates and build up recurring commercial contracts. Our tone should be upbeat, casual, and trustworthy.
+
+Greeting style: "Hey! Thanks for calling ClearView Window Cleaning — how can we brighten up your day?"
+
+Key selling points are: free estimates, fully insured, eco-friendly cleaning solutions, streak-free guarantee, flexible scheduling, before and after photos provided.
+
+Common objections include: not sure if worth the cost, just want exterior only, want rain guarantee, haven't gotten windows cleaned before.
+
+We use Jobber as our CRM and scheduling tool. Payment processor is PayPal and Venmo. We also use Google Sheets for job tracking.
+
+My phone is 801-555-0322. Email is tom@clearviewslc.com. Website is clearviewslc.com. Our address is 560 S 300 E, Salt Lake City, UT 84111.
+
+Follow-up procedure: send before/after photos to the customer via text within 24 hours. Note: offer a 15% discount for customers who book recurring quarterly service.

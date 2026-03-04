@@ -1,0 +1,34 @@
+# ─────────────────────────────────────────────────
+# ONBOARDING TRANSCRIPT — ClearView Window Cleaning
+# Account ID: clearview-windows
+# ─────────────────────────────────────────────────
+
+This is the onboarding session for ClearView Window Cleaning. Here are updates since the demo call.
+
+The business name is now ClearView Exterior Solutions — they expanded beyond just windows.
+
+They now have 10 employees. Business hours are now Monday through Saturday, 8:00 AM to 6:00 PM Mountain time. Saturday is for residential only.
+
+Services offered are: residential window cleaning, commercial window cleaning, pressure washing, gutter cleaning, solar panel cleaning, screen repair and replacement, holiday light installation, roof soft washing, concrete sealing.
+
+Service area now also includes Ogden, Lehi, and Orem.
+
+Emergency definition now also includes: water intrusion around window frame needing immediate seal, bird or animal trapped in window well.
+
+The emergency contact is still Tom Bradley at 801-555-0322. They added a team lead, Sarah Mitchell, at 801-555-0330 for field emergencies. Fallback: text the customer an ETA and have a crew dispatched within 2 hours.
+
+Non-emergency routing now includes: for commercial clients, route to the commercial account manager Lisa at 801-555-0335.
+
+They switched to ServiceM8 as their CRM. Payment processor now includes Square in addition to PayPal. They also use Zapier and Loom for customer estimates.
+
+Average residential job value is now $325. Commercial average is $2000. Pricing model is unchanged.
+
+Tone should be upbeat, casual, and customer-focused. Call objective is to book estimates and cross-sell additional services like gutter cleaning with every window job.
+
+Key selling points are: free estimates, fully insured, eco-friendly solutions, streak-free guarantee, flexible scheduling, before/after photos, holiday light installation services, Google 4.9 star rating.
+
+Scheduling preferences: group jobs by ZIP code to optimize route efficiency, prefer midweek for commercial jobs.
+
+Integration constraints: never schedule roof work without confirming customer's HOA allows it first.
+
+Note: they want the agent to mention their bundle deal — book window cleaning plus gutter cleaning together and save 20%.

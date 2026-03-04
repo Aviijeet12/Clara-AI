@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────
+# DEMO TRANSCRIPT — Bright Spark Electrical Services
+# Account ID: bright-spark-electric
+# ─────────────────────────────────────────────────
+
+Hi there, my name is Rachel Torres and I own Bright Spark Electrical Services. We've been in business for 7 years now and we currently have 5 employees including myself.
+
+Our industry is residential and light commercial electrical work. We're a licensed electrical contractor serving the Austin metro area.
+
+Business hours are Monday through Friday, 7:00 AM to 5:00 PM Central time.
+
+Services offered are: panel upgrades, whole-home rewiring, ceiling fan installation, landscape lighting, EV charger installation, outlet and switch repair, smoke detector installation.
+
+Our service area is the greater Austin area including Round Rock, Cedar Park, Pflugerville, and Georgetown.
+
+An emergency is defined as: sparking outlets, burning smell from wiring, total power loss, exposed live wires, electrical fire hazard.
+
+For emergencies, the emergency contact is Rachel Torres at 512-555-0389. If I'm unavailable, contact our lead electrician Mike Davis at 512-555-0401. Fallback: take all details and assure callback within 10 minutes.
+
+Non-emergency calls should take the caller's name and number, describe the issue, and schedule a next-day appointment slot.
+
+If a transfer fails, say: "I'm sorry I couldn't connect you directly. Let me get your name and number and someone will call you back within 30 minutes."
+
+Our pricing model is flat-rate pricing for standard jobs and time-and-materials for complex projects. The average job value is around $600. Our busiest season is summer because that's when AC units overload circuits and people do home renovations.
+
+The goal of the calls is to qualify leads and book on-site estimates. Our tone should be friendly, knowledgeable, and reassuring since people are often nervous about electrical work.
+
+Greeting style: "Hey, thanks for calling Bright Spark Electrical! This is our service line — how can we help you today?"
+
+Key selling points are: same-day emergency service, licensed and bonded, upfront flat-rate pricing, lifetime warranty on workmanship, family-owned local business.
+
+Common objections include: price too high, want to compare quotes, need to check with spouse, not sure if they need a permit.
+
+Our scheduling tool is Jobber. We use QuickBooks as our CRM. Payment processor is Square. We also use Google Business Profile for reviews.
+
+My phone is 512-555-0389. Email is rachel@brightsparkaustin.com. Website is brightsparkaustin.com. Our address is 8742 Research Blvd, Austin, TX 78758.
+
+Follow-up procedure: send a text confirmation within 1 hour of booking, then a reminder text the morning of the appointment. Note: always mention we offer a free electrical safety inspection with any service call over $200.

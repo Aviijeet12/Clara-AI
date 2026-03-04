@@ -1,0 +1,255 @@
+{
+  "account_id": "greenscape-lawn",
+  "from_version": 1,
+  "to_version": 2,
+  "created_at": "2026-03-04T21:18:31.027Z",
+  "total_changes": 23,
+  "changes": [
+    {
+      "field": "company_name",
+      "path": "company_name",
+      "old_value": "GreenScape Lawn & Landscape",
+      "new_value": "GreenScape Pro Lawn & Landscape",
+      "change_type": "updated"
+    },
+    {
+      "field": "days",
+      "path": "business_hours.days",
+      "old_value": "Monday through Friday",
+      "new_value": "Monday through Saturday",
+      "change_type": "updated"
+    },
+    {
+      "field": "start",
+      "path": "business_hours.start",
+      "old_value": "7:00 AM",
+      "new_value": "6:30 AM",
+      "change_type": "updated"
+    },
+    {
+      "field": "end",
+      "path": "business_hours.end",
+      "old_value": "4:00 PM",
+      "new_value": "5:00 PM",
+      "change_type": "updated"
+    },
+    {
+      "field": "services_supported",
+      "path": "services_supported",
+      "old_value": [
+        "lawn mowing",
+        "landscape design",
+        "irrigation installation",
+        "tree trimming",
+        "mulching",
+        "seasonal cleanups",
+        "sod installation",
+        "hardscaping",
+        "outdoor lighting"
+      ],
+      "new_value": [
+        "lawn mowing",
+        "landscape design",
+        "irrigation installation",
+        "tree trimming",
+        "mulching",
+        "seasonal cleanups",
+        "sod installation",
+        "hardscaping",
+        "outdoor lighting",
+        "drainage solutions",
+        "snow removal",
+        "artificial turf installation"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency_definition",
+      "path": "emergency_definition",
+      "old_value": [
+        "fallen tree on property",
+        "broken irrigation main flooding yard",
+        "storm damage requiring immediate cleanup"
+      ],
+      "new_value": [
+        "severe soil erosion threatening foundation",
+        "downed power line tangled in trees — do NOT approach",
+        "call utility company"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency_routing_rules",
+      "path": "emergency_routing_rules",
+      "old_value": [
+        {
+          "contact_name": "Maria Gonzalez",
+          "phone": "503-555-0178",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "send a crew within 4 hours and call the customer back to confirm arrival window"
+        }
+      ],
+      "new_value": [
+        {
+          "contact_name": "Maria Gonzalez",
+          "phone": "503-555-0178",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "have the crew lead text a status update to the customer within 1 hour"
+        }
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "non_emergency_routing_rules",
+      "path": "non_emergency_routing_rules",
+      "old_value": "take the caller's name, address, and phone number, describe the work needed, and schedule a free on-site estimate",
+      "new_value": "Take caller name, phone number, and message. Schedule callback during business hours.",
+      "change_type": "updated"
+    },
+    {
+      "field": "emergency",
+      "path": "routing_rules.emergency",
+      "old_value": [
+        {
+          "contact_name": "Maria Gonzalez",
+          "phone": "503-555-0178",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "send a crew within 4 hours and call the customer back to confirm arrival window"
+        }
+      ],
+      "new_value": [
+        {
+          "contact_name": "Maria Gonzalez",
+          "phone": "503-555-0178",
+          "role": "Primary on-call",
+          "order": 1,
+          "fallback": "have the crew lead text a status update to the customer within 1 hour"
+        }
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "non_emergency",
+      "path": "routing_rules.non_emergency",
+      "old_value": "take the caller's name, address, and phone number, describe the work needed, and schedule a free on-site estimate",
+      "new_value": "Take caller name, phone number, and message. Schedule callback during business hours.",
+      "change_type": "updated"
+    },
+    {
+      "field": "message_if_fails",
+      "path": "call_transfer_rules.message_if_fails",
+      "old_value": "I'm sorry I can't connect you to our team right now. Can I take your details so we can schedule a callback?",
+      "new_value": "I'm sorry, I wasn't able to connect you. Can I take your name and number so someone can call you back shortly?",
+      "change_type": "updated"
+    },
+    {
+      "field": "integration_constraints",
+      "path": "integration_constraints",
+      "old_value": [],
+      "new_value": [
+        "never schedule tree removal jobs without a city permit number on file"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "industry",
+      "path": "industry",
+      "old_value": "crews",
+      "new_value": "supervisor",
+      "change_type": "updated"
+    },
+    {
+      "field": "number_of_employees",
+      "path": "number_of_employees",
+      "old_value": 20,
+      "new_value": 28,
+      "change_type": "updated"
+    },
+    {
+      "field": "pricing_model",
+      "path": "pricing_model",
+      "old_value": "per-project quotes for landscaping and monthly recurring for lawn maintenance",
+      "new_value": "remains per-project plus monthly recurring",
+      "change_type": "updated"
+    },
+    {
+      "field": "average_job_value",
+      "path": "average_job_value",
+      "old_value": "2000 for landscaping projects and $150 per month for maintenance",
+      "new_value": "for landscaping is now $3500",
+      "change_type": "updated"
+    },
+    {
+      "field": "call_objective",
+      "path": "call_objective",
+      "old_value": "s is to schedule free estimates for new projects and sign up recurring lawn maintenance contracts",
+      "new_value": "now to schedule estimates",
+      "change_type": "updated"
+    },
+    {
+      "field": "key_selling_points",
+      "path": "key_selling_points",
+      "old_value": [
+        "free estimates",
+        "certified arborist on staff",
+        "eco-friendly products",
+        "10 years in business",
+        "satisfaction guarantee",
+        "flexible scheduling"
+      ],
+      "new_value": [
+        "free estimates",
+        "certified arborist on staff",
+        "eco-friendly products",
+        "10 years in business",
+        "satisfaction guarantee",
+        "flexible scheduling",
+        "commercial and HOA expertise",
+        "snow removal available"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "scheduling_preferences",
+      "path": "scheduling_preferences",
+      "old_value": "",
+      "new_value": "batch estimates by neighborhood to save drive time, prefer Tuesday and Thursday for new consultations",
+      "change_type": "added"
+    },
+    {
+      "field": "crm",
+      "path": "crm",
+      "old_value": "Jobber",
+      "new_value": "Service Autopilot",
+      "change_type": "updated"
+    },
+    {
+      "field": "payment_processor",
+      "path": "payment_processor",
+      "old_value": "Square",
+      "new_value": "Stripe",
+      "change_type": "updated"
+    },
+    {
+      "field": "other_tools",
+      "path": "other_tools",
+      "old_value": [
+        "Canva for design proposals and Instagram for marketing"
+      ],
+      "new_value": [
+        "Aspire for estimating and LMN for time tracking"
+      ],
+      "change_type": "updated"
+    },
+    {
+      "field": "notes",
+      "path": "notes",
+      "old_value": "we offer 10% off the first month of any lawn maintenance contract.",
+      "new_value": "current promotion is free spring cleanup (valued at $250) with any new annual lawn maintenance contract signed this month.",
+      "change_type": "updated"
+    }
+  ]
+}
