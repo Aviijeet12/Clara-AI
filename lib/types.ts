@@ -138,6 +138,11 @@ export interface ProcessResponse {
   accountId: string;
   version: number;
   files: string[];
+  data?: {
+    memo: AccountMemo;
+    retellSpec: RetellAgentSpec;
+    changelog?: Changelog;
+  };
 }
 
 export interface AccountDataResponse {

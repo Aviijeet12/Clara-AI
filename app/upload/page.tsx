@@ -15,6 +15,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Upload, FileText, CheckCircle, AlertCircle, Loader2 } from 'lucide-react'
+import { JsonViewer } from '@/components/json-viewer'
 
 const DEMO_TRANSCRIPT = `Hi, my name is John Smith and I run Smith's Plumbing Solutions. We've been in business for 12 years. Our company has 8 employees. Our industry is residential and commercial plumbing.
 
@@ -83,6 +84,11 @@ export default function UploadPage() {
     message: string
     version?: number
     files?: string[]
+    data?: {
+      memo: Record<string, any>
+      retellSpec: Record<string, any>
+      changelog?: Record<string, any>
+    }
   } | null>(null)
   const [error, setError] = useState<string | null>(null)
 
@@ -192,6 +198,17 @@ export default function UploadPage() {
                   Upload Another
                 </Button>
               </div>
+
+              {/* Inline generated data */}
+              {result.data && (
+                <div className="mt-8 space-y-6 text-left">
+                  <JsonViewer title="Account Memo" data={result.data.memo} />
+                  <JsonViewer title="Retell Agent Spec" data={result.data.retellSpec} />
+                  {result.data.changelog && (
+                    <JsonViewer title="Changelog" data={result.data.changelog} />
+                  )}
+                </div>
+              )}
             </Card>
           ) : (
             <>

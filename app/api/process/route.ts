@@ -77,9 +77,13 @@ export async function POST(request: NextRequest) {
 
       const retell = generateRetellSpec(extracted);
 
-      const savedFiles: string[] = [];
-      savedFiles.push(await saveAccountMemo(accountId, 1, extracted));
-      savedFiles.push(await saveRetellSpec(accountId, 1, retell));
+      // Save to disk (non-fatal on Vercel where filesystem is read-only/ephemeral)
+      try {
+        await saveAccountMemo(accountId, 1, extracted);
+        await saveRetellSpec(accountId, 1, retell);
+      } catch (saveErr) {
+        console.warn("File save failed (expected on Vercel):", saveErr);
+      }
 
       const response: ProcessResponse = {
         success: true,
@@ -87,6 +91,7 @@ export async function POST(request: NextRequest) {
         accountId,
         version: 1,
         files: ["v1/account_memo.json", "v1/retell_agent.json"],
+        data: { memo: extracted, retellSpec: retell },
       };
       return NextResponse.json(response, { status: 201 });
     }
@@ -131,10 +136,14 @@ export async function POST(request: NextRequest) {
       // Generate changelog
       const changelog = generateChangelog(existingMemo, merged);
 
-      const savedFiles: string[] = [];
-      savedFiles.push(await saveAccountMemo(accountId, newVersion, merged));
-      savedFiles.push(await saveRetellSpec(accountId, newVersion, retell));
-      savedFiles.push(await saveChangelog(accountId, changelog));
+      // Save to disk (non-fatal on Vercel where filesystem is read-only/ephemeral)
+      try {
+        await saveAccountMemo(accountId, newVersion, merged);
+        await saveRetellSpec(accountId, newVersion, retell);
+        await saveChangelog(accountId, changelog);
+      } catch (saveErr) {
+        console.warn("File save failed (expected on Vercel):", saveErr);
+      }
 
       const response: ProcessResponse = {
         success: true,
@@ -146,6 +155,7 @@ export async function POST(request: NextRequest) {
           `v${newVersion}/retell_agent.json`,
           "changelog.json",
         ],
+        data: { memo: merged, retellSpec: retell, changelog },
       };
       return NextResponse.json(response, { status: 201 });
     }
