@@ -23,7 +23,15 @@ export async function POST(request: NextRequest) {
       ? " (Note: Running on Vercel — data is processed but will not persist across requests. Use Docker for persistent storage.)"
       : "";
 
-    const body = (await request.json()) as ProcessRequest;
+    let body: ProcessRequest;
+    try {
+      body = (await request.json()) as ProcessRequest;
+    } catch {
+      return NextResponse.json(
+        { success: false, message: "Invalid JSON in request body" },
+        { status: 400 }
+      );
+    }
 
     // ── Validate input ──
     if (!body.accountId || typeof body.accountId !== "string") {

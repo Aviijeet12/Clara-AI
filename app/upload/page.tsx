@@ -87,6 +87,7 @@ export default function UploadPage() {
   const [error, setError] = useState<string | null>(null)
 
   const handleProcess = async () => {
+    if (isProcessing) return
     if (!accountId.trim()) {
       setError('Please enter an Account ID')
       return
